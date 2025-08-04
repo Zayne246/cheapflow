@@ -65,7 +65,7 @@ class AuthManager {
       throw new Error('Microsoft OAuth not configured - set MICROSOFT_CLIENT_ID');
     }
     
-    const redirectUri = process.env.MICROSOFT_REDIRECT_URI || 'http://localhost:3000/auth/microsoft/callback';
+    const redirectUri = process.env.MICROSOFT_REDIRECT_URL || 'http://localhost:3000/auth/microsoft/callback';
     const scopes = 'Mail.Read Calendars.ReadWrite';
     
     return `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?` +
@@ -81,7 +81,7 @@ class AuthManager {
     try {
       const clientId = process.env.MICROSOFT_CLIENT_ID;
       const clientSecret = process.env.MICROSOFT_CLIENT_SECRET;
-      const redirectUri = process.env.MICROSOFT_REDIRECT_URI || 'http://localhost:3000/auth/microsoft/callback';
+      const redirectUri = process.env.MICROSOFT_REDIRECT_URL || 'http://localhost:3000/auth/microsoft/callback';
 
       if (!clientId || !clientSecret) {
         throw new Error('Microsoft OAuth not configured');
